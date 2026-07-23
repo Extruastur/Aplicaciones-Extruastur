@@ -19,9 +19,13 @@
     :root {
       --granate: #7c1f2d;
       --granate-oscuro: #59141f;
+
       --azul: #294e64;
       --azul-oscuro: #183747;
-      --fondo: #f4f5f7;
+
+      --verde: #4f6b3a;
+      --verde-oscuro: #304423;
+
       --texto: #1f2933;
       --texto-suave: #66717c;
       --blanco: #ffffff;
@@ -40,8 +44,10 @@
       min-height: 100vh;
       padding: 24px;
       font-family:
+        "Century Gothic",
+        CenturyGothic,
+        AppleGothic,
         Arial,
-        Helvetica,
         sans-serif;
       color: var(--texto);
       background:
@@ -63,7 +69,7 @@
 
     .pagina {
       width: 100%;
-      max-width: 940px;
+      max-width: 1180px;
     }
 
     .panel {
@@ -111,17 +117,17 @@
     .accesos {
       display: grid;
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-      gap: 24px;
+        repeat(3, minmax(0, 1fr));
+      gap: 22px;
       padding: 32px;
     }
 
     .acceso {
       position: relative;
-      min-height: 255px;
+      min-height: 270px;
       overflow: hidden;
       border-radius: 20px;
-      padding: 30px 24px;
+      padding: 30px 22px;
       color: var(--blanco);
       text-decoration: none;
       box-shadow:
@@ -191,6 +197,15 @@
         );
     }
 
+    .documentacion {
+      background:
+        linear-gradient(
+          145deg,
+          var(--verde),
+          var(--verde-oscuro)
+        );
+    }
+
     .icono {
       position: relative;
       z-index: 1;
@@ -244,6 +259,17 @@
       font-size: 13px;
     }
 
+    @media (max-width: 950px) {
+      .accesos {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .documentacion {
+        grid-column: 1 / -1;
+      }
+    }
+
     @media (max-width: 700px) {
       body {
         padding: 14px;
@@ -276,6 +302,10 @@
         grid-template-columns: 1fr;
         gap: 17px;
         padding: 20px;
+      }
+
+      .documentacion {
+        grid-column: auto;
       }
 
       .acceso {
@@ -381,6 +411,28 @@
 
           <span class="entrar">
             Entrar en Fabricación
+          </span>
+        </a>
+
+        <a
+          class="acceso documentacion"
+          href="https://extruastur.tail40ea9b.ts.net:10000"
+        >
+          <div class="icono" aria-hidden="true">
+            📁
+          </div>
+
+          <h2 class="titulo-acceso">
+            Documentación
+          </h2>
+
+          <p class="descripcion">
+            Consulta y descarga de documentación
+            de las obras.
+          </p>
+
+          <span class="entrar">
+            Entrar en Documentación
           </span>
         </a>
 
