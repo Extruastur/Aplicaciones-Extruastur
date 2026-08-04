@@ -1,16 +1,279 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aplicaciones Extruastur</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:"Century Gothic",Arial,sans-serif;background:#f4f6f8;color:#17212b;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}.wrap{width:min(1050px,100%)}header{text-align:center;margin-bottom:28px}header img{width:190px;max-width:55vw}h1{font-size:clamp(25px,4vw,38px);margin:16px 0 7px}p{color:#667085}.apps{display:grid;grid-template-columns:repeat(2,minmax(250px,1fr));gap:18px}.app{display:flex;align-items:center;gap:16px;background:white;border:1px solid #dde3ea;border-radius:18px;padding:22px;text-decoration:none;color:inherit;box-shadow:0 8px 24px #1d29390f;transition:.16s}.app:hover{transform:translateY(-2px);box-shadow:0 12px 30px #1d29391c}.icon{width:58px;height:58px;border-radius:15px;background:#eaf3fb;display:flex;align-items:center;justify-content:center;font-size:29px;flex:none}.app strong{display:block;font-size:19px;margin-bottom:5px}.app span{font-size:13px;color:#667085}.pedidos{border-color:#9fc4e5;background:#fafdff}.note{font-size:12px;text-align:center;margin-top:18px}@media(max-width:650px){.apps{grid-template-columns:1fr}.app{padding:18px}}
-</style>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aplicaciones Extruastur</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 30px 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: "Century Gothic", Arial, sans-serif;
+            background:
+                linear-gradient(
+                    135deg,
+                    #f4f6f8 0%,
+                    #e5e9ed 100%
+                );
+
+            color: #222;
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 900px;
+
+            padding: 38px 34px;
+            border-radius: 24px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.12);
+
+            text-align: center;
+        }
+
+        .logo {
+            display: block;
+
+            width: min(340px, 82%);
+            height: auto;
+
+            margin: 0 auto 18px;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            color: #252525;
+        }
+
+        .subtitulo {
+            margin: 0 0 32px;
+
+            font-size: 15px;
+            color: #666;
+        }
+
+        .aplicaciones {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .aplicacion {
+            min-height: 135px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 22px 18px;
+
+            border: 1px solid #dfe3e7;
+            border-radius: 18px;
+
+            background: #ffffff;
+            color: #242424;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 7px 18px rgba(0, 0, 0, 0.07);
+
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .aplicacion:hover {
+            transform: translateY(-4px);
+
+            border-color: #8e2f36;
+
+            box-shadow:
+                0 13px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .icono {
+            margin-bottom: 11px;
+
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .nombre {
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .descripcion {
+            margin-top: 7px;
+
+            font-size: 13px;
+            line-height: 1.4;
+
+            color: #707070;
+        }
+
+        .pie {
+            margin-top: 28px;
+
+            font-size: 12px;
+            color: #8b8b8b;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                align-items: flex-start;
+                padding: 18px 12px;
+            }
+
+            .contenedor {
+                padding: 28px 17px;
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitulo {
+                margin-bottom: 24px;
+                font-size: 14px;
+            }
+
+            .aplicaciones {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .aplicacion {
+                min-height: 112px;
+                padding: 18px 14px;
+            }
+
+            .icono {
+                font-size: 31px;
+            }
+
+            .nombre {
+                font-size: 17px;
+            }
+        }
+    </style>
 </head>
-<body><main class="wrap"><header><img src="logo_extruastur.png" alt="Extruastur"><h1>Aplicaciones Extruastur</h1><p>Selecciona la aplicación a la que deseas acceder</p></header><section class="apps">
-<a class="app" href="https://extruastur.tail40ea9b.ts.net"><div class="icon">🏭</div><div><strong>Fabricación</strong><span>Fabricaciones, mecanizados y almacén</span></div></a>
-<a class="app" href="https://extruastur.tail40ea9b.ts.net:8443"><div class="icon">🕒</div><div><strong>Partes de trabajo</strong><span>Partes diarios, dietas y calendario</span></div></a>
-<a class="app" href="https://extruastur.tail40ea9b.ts.net:10000"><div class="icon">📁</div><div><strong>Documentación</strong><span>Documentos de obras y trabajadores</span></div></a>
-<a class="app pedidos" href="http://extruastur:8005/login"><div class="icon">🛒</div><div><strong>Pedidos</strong><span>Solicitudes de materiales para las obras</span></div></a>
-</section><p class="note">El acceso a Pedidos funciona desde la red de Extruastur o mediante Tailscale.</p></main></body></html>
+
+<body>
+
+    <main class="contenedor">
+
+        <img
+            class="logo"
+            src="logo_extruastur.png"
+            alt="Extruastur"
+        >
+
+        <h1>Aplicaciones Extruastur</h1>
+
+        <p class="subtitulo">
+            Selecciona la aplicación a la que quieres acceder
+        </p>
+
+        <section class="aplicaciones">
+
+            <!-- FABRICACIÓN -->
+            <a
+                class="aplicacion"
+                href="https://extruastur.tail40ea9b.ts.net"
+            >
+                <span class="icono">🏭</span>
+
+                <span class="nombre">
+                    Fabricación
+                </span>
+
+                <span class="descripcion">
+                    Fabricaciones, mecanizados y almacén
+                </span>
+            </a>
+
+            <!-- PARTES DE TRABAJO -->
+            <a
+                class="aplicacion"
+                href="https://extruastur.tail40ea9b.ts.net:8443"
+            >
+                <span class="icono">🕒</span>
+
+                <span class="nombre">
+                    Partes de trabajo
+                </span>
+
+                <span class="descripcion">
+                    Registro y consulta de jornadas
+                </span>
+            </a>
+
+            <!-- DOCUMENTACIÓN -->
+            <a
+                class="aplicacion"
+                href="https://extruastur.tail40ea9b.ts.net:10000"
+            >
+                <span class="icono">📁</span>
+
+                <span class="nombre">
+                    Documentación
+                </span>
+
+                <span class="descripcion">
+                    Documentación de obras y trabajadores
+                </span>
+            </a>
+
+            <!-- PEDIDOS -->
+            <a
+                class="aplicacion"
+                href="https://extruastur.tail40ea9b.ts.net:10001"
+            >
+                <span class="icono">🛒</span>
+
+                <span class="nombre">
+                    Pedidos
+                </span>
+
+                <span class="descripcion">
+                    Solicitudes de materiales para las obras
+                </span>
+            </a>
+
+        </section>
+
+        <div class="pie">
+            Extruastur · Aplicaciones internas
+        </div>
+
+    </main>
+
+</body>
+</html>
