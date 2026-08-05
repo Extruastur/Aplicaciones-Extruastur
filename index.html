@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -24,14 +25,14 @@
             justify-content: center;
 
             font-family: "Century Gothic", Arial, sans-serif;
+            color: #222;
+
             background:
                 linear-gradient(
                     135deg,
                     #f4f6f8 0%,
                     #e5e9ed 100%
                 );
-
-            color: #222;
         }
 
         .contenedor {
@@ -41,12 +42,11 @@
             padding: 38px 34px;
             border-radius: 24px;
 
+            text-align: center;
             background: #ffffff;
 
             box-shadow:
                 0 18px 45px rgba(0, 0, 0, 0.12);
-
-            text-align: center;
         }
 
         .logo {
@@ -63,7 +63,6 @@
 
             font-size: 30px;
             font-weight: 700;
-
             color: #252525;
         }
 
@@ -71,7 +70,7 @@
             margin: 0 0 32px;
 
             font-size: 15px;
-            color: #666;
+            color: #666666;
         }
 
         .aplicaciones {
@@ -81,7 +80,7 @@
         }
 
         .aplicacion {
-            min-height: 135px;
+            min-height: 145px;
 
             display: flex;
             flex-direction: column;
@@ -90,41 +89,84 @@
 
             padding: 22px 18px;
 
-            border: 1px solid #dfe3e7;
+            border: none;
             border-radius: 18px;
 
-            background: #ffffff;
-            color: #242424;
-
+            color: #ffffff;
             text-decoration: none;
 
             box-shadow:
-                0 7px 18px rgba(0, 0, 0, 0.07);
+                0 8px 20px rgba(0, 0, 0, 0.17);
 
             transition:
                 transform 0.18s ease,
                 box-shadow 0.18s ease,
-                border-color 0.18s ease;
+                filter 0.18s ease;
         }
 
         .aplicacion:hover {
-            transform: translateY(-4px);
-
-            border-color: #8e2f36;
+            transform: translateY(-5px);
 
             box-shadow:
-                0 13px 25px rgba(0, 0, 0, 0.12);
+                0 15px 28px rgba(0, 0, 0, 0.24);
+
+            filter: brightness(1.08);
+        }
+
+        .aplicacion:focus-visible {
+            outline: 4px solid rgba(0, 0, 0, 0.18);
+            outline-offset: 3px;
+        }
+
+        /* Fabricación: rojo */
+        .fabricacion {
+            background:
+                linear-gradient(
+                    135deg,
+                    #b52d36,
+                    #771b22
+                );
+        }
+
+        /* Partes de trabajo: azul */
+        .partes {
+            background:
+                linear-gradient(
+                    135deg,
+                    #287fc1,
+                    #174d7d
+                );
+        }
+
+        /* Documentación: naranja */
+        .documentacion {
+            background:
+                linear-gradient(
+                    135deg,
+                    #df8428,
+                    #a9540e
+                );
+        }
+
+        /* Pedidos: verde */
+        .pedidos {
+            background:
+                linear-gradient(
+                    135deg,
+                    #39a568,
+                    #206a42
+                );
         }
 
         .icono {
             margin-bottom: 11px;
 
-            font-size: 36px;
+            font-size: 38px;
             line-height: 1;
         }
 
         .nombre {
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 700;
         }
 
@@ -134,7 +176,7 @@
             font-size: 13px;
             line-height: 1.4;
 
-            color: #707070;
+            color: rgba(255, 255, 255, 0.92);
         }
 
         .pie {
@@ -170,16 +212,16 @@
             }
 
             .aplicacion {
-                min-height: 112px;
+                min-height: 115px;
                 padding: 18px 14px;
             }
 
             .icono {
-                font-size: 31px;
+                font-size: 32px;
             }
 
             .nombre {
-                font-size: 17px;
+                font-size: 18px;
             }
         }
     </style>
@@ -205,8 +247,8 @@
 
             <!-- FABRICACIÓN -->
             <a
-                class="aplicacion"
-                href="https://extruastur.tail40ea9b.ts.net"
+                class="aplicacion fabricacion"
+                href="https://extruastur.tail40ea9b.ts.net/"
             >
                 <span class="icono">🏭</span>
 
@@ -221,8 +263,8 @@
 
             <!-- PARTES DE TRABAJO -->
             <a
-                class="aplicacion"
-                href="https://extruastur.tail40ea9b.ts.net:8443"
+                class="aplicacion partes"
+                href="https://extruastur.tail40ea9b.ts.net:8443/"
             >
                 <span class="icono">🕒</span>
 
@@ -237,8 +279,8 @@
 
             <!-- DOCUMENTACIÓN -->
             <a
-                class="aplicacion"
-                href="https://extruastur.tail40ea9b.ts.net:10000"
+                class="aplicacion documentacion"
+                href="https://extruastur.tail40ea9b.ts.net:10000/"
             >
                 <span class="icono">📁</span>
 
@@ -253,8 +295,8 @@
 
             <!-- PEDIDOS -->
             <a
-                class="aplicacion"
-                href="https://extruastur.tail40ea9b.ts.net:10001"
+                class="aplicacion pedidos"
+                href="https://extruastur.tail40ea9b.ts.net/pedidos/"
             >
                 <span class="icono">🛒</span>
 
