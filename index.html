@@ -1,424 +1,251 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <title>Aplicaciones Extruastur</title>
 
-<title>Aplicaciones Extruastur</title>
+    <!-- ICONO DE LA WEB / FAVORITOS -->
+    <link rel="icon" type="image/x-icon" href="extruastur-icon.ico?v=20260925-3">
+    <link rel="icon" type="image/png" sizes="256x256" href="extruastur-icon.png?v=20260925-3">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260925-3">
 
-<!-- ICONO DE LA WEB / FAVORITOS -->
-<link rel="icon" href="favicon.ico?v=20260925" sizes="any">
-<link rel="icon" type="image/png" href="favicon.png?v=20260925">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260925">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        min-height: 100vh;
-        padding: 30px 18px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-family: "Century Gothic", Arial, sans-serif;
-        color: #222222;
-
-        background:
-            linear-gradient(
-                135deg,
-                #f4f6f8 0%,
-                #e5e9ed 100%
-            );
-    }
-
-    .contenedor {
-        width: 100%;
-        max-width: 980px;
-
-        padding: 38px 34px;
-        border-radius: 24px;
-
-        text-align: center;
-        background: #ffffff;
-
-        box-shadow:
-            0 18px 45px rgba(0, 0, 0, 0.12);
-    }
-
-    .logo {
-        display: block;
-
-        width: min(340px, 82%);
-        height: auto;
-
-        margin: 0 auto 18px;
-    }
-
-    h1 {
-        margin: 0 0 8px;
-
-        font-size: 30px;
-        font-weight: 700;
-        color: #252525;
-    }
-
-    .subtitulo {
-        margin: 0 0 32px;
-
-        font-size: 15px;
-        color: #666666;
-    }
-
-    /*
-        DISTRIBUCIÓN ESCRITORIO:
-
-        Fabricación          Partes
-
-               Control Económico
-
-        Pedidos             Almacén
-
-        Equivale a los cinco puntos de un dado.
-    */
-    .aplicaciones {
-        display: grid;
-
-        grid-template-columns:
-            minmax(190px, 1fr)
-            minmax(190px, 1fr)
-            minmax(190px, 1fr);
-
-        grid-template-rows:
-            auto
-            auto
-            auto;
-
-        gap: 20px;
-
-        width: 100%;
-        max-width: 800px;
-
-        margin: 0 auto;
-    }
-
-    .aplicacion {
-        min-height: 145px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        padding: 22px 18px;
-
-        border: none;
-        border-radius: 18px;
-
-        color: #ffffff;
-        text-decoration: none;
-
-        box-shadow:
-            0 8px 20px rgba(0, 0, 0, 0.17);
-
-        transition:
-            transform 0.18s ease,
-            box-shadow 0.18s ease,
-            filter 0.18s ease;
-    }
-
-    .aplicacion:hover {
-        transform: translateY(-5px);
-
-        box-shadow:
-            0 15px 28px rgba(0, 0, 0, 0.24);
-
-        filter: brightness(1.08);
-    }
-
-    .aplicacion:focus-visible {
-        outline: 4px solid rgba(0, 0, 0, 0.18);
-        outline-offset: 3px;
-    }
-
-    /* FABRICACIÓN · arriba izquierda */
-    .fabricacion {
-        grid-column: 1;
-        grid-row: 1;
-
-        background:
-            linear-gradient(
-                135deg,
-                #b52d36,
-                #771b22
-            );
-    }
-
-    /* PARTES · arriba derecha */
-    .partes {
-        grid-column: 3;
-        grid-row: 1;
-
-        background:
-            linear-gradient(
-                135deg,
-                #287fc1,
-                #174d7d
-            );
-    }
-
-    /* CONTROL ECONÓMICO · centro */
-    .control-economico {
-        grid-column: 2;
-        grid-row: 2;
-
-        background:
-            linear-gradient(
-                135deg,
-                #df8428,
-                #a9540e
-            );
-    }
-
-    /* PEDIDOS · abajo izquierda */
-    .pedidos {
-        grid-column: 1;
-        grid-row: 3;
-
-        background:
-            linear-gradient(
-                135deg,
-                #39a568,
-                #206a42
-            );
-    }
-
-    /* CONTROL DE ALMACÉN · abajo derecha */
-    .almacen {
-        grid-column: 3;
-        grid-row: 3;
-
-        background:
-            linear-gradient(
-                135deg,
-                #7b4bb7,
-                #4e2b78
-            );
-    }
-
-    .icono {
-        margin-bottom: 11px;
-
-        font-size: 38px;
-        line-height: 1;
-    }
-
-    .nombre {
-        font-size: 20px;
-        font-weight: 700;
-    }
-
-    .descripcion {
-        margin-top: 7px;
-
-        font-size: 13px;
-        line-height: 1.4;
-
-        color: rgba(255, 255, 255, 0.92);
-    }
-
-    .pie {
-        margin-top: 28px;
-
-        font-size: 12px;
-        color: #8b8b8b;
-    }
-
-    /* MÓVIL: mantiene una sola columna como hasta ahora */
-    @media (max-width: 650px) {
+        html,
         body {
-            align-items: flex-start;
-            padding: 18px 12px;
+            margin: 0;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 30px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Century Gothic", Arial, sans-serif;
+            color: #222222;
+            background: linear-gradient(135deg, #f4f6f8 0%, #e5e9ed 100%);
         }
 
         .contenedor {
-            padding: 28px 17px;
-            border-radius: 18px;
+            width: 100%;
+            max-width: 980px;
+            padding: 38px 34px;
+            border-radius: 24px;
+            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo {
+            display: block;
+            width: min(340px, 82%);
+            height: auto;
+            margin: 0 auto 18px;
         }
 
         h1 {
-            font-size: 24px;
+            margin: 0 0 8px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #252525;
         }
 
         .subtitulo {
-            margin-bottom: 24px;
-            font-size: 14px;
+            margin: 0 0 32px;
+            font-size: 15px;
+            color: #666666;
         }
 
         .aplicaciones {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-
-            gap: 14px;
-            max-width: none;
-        }
-
-        .fabricacion,
-        .partes,
-        .control-economico,
-        .pedidos,
-        .almacen {
-            grid-column: auto;
-            grid-row: auto;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(190px, 1fr));
+            grid-template-areas:
+                "fabricacion . partes"
+                ". control ."
+                "pedidos . almacen";
+            gap: 20px;
         }
 
         .aplicacion {
-            min-height: 115px;
-            padding: 18px 14px;
+            min-height: 145px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 22px 18px;
+            border: none;
+            border-radius: 18px;
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.17);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+        }
+
+        .aplicacion:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 28px rgba(0, 0, 0, 0.24);
+            filter: brightness(1.08);
+        }
+
+        .aplicacion:focus-visible {
+            outline: 4px solid rgba(0, 0, 0, 0.18);
+            outline-offset: 3px;
+        }
+
+        .fabricacion {
+            grid-area: fabricacion;
+            background: linear-gradient(135deg, #b52d36, #771b22);
+        }
+
+        .partes {
+            grid-area: partes;
+            background: linear-gradient(135deg, #287fc1, #174d7d);
+        }
+
+        .control-economico {
+            grid-area: control;
+            background: linear-gradient(135deg, #df8428, #a9540e);
+        }
+
+        .pedidos {
+            grid-area: pedidos;
+            background: linear-gradient(135deg, #39a568, #206a42);
+        }
+
+        .almacen {
+            grid-area: almacen;
+            background: linear-gradient(135deg, #7b4bb7, #4e2b78);
         }
 
         .icono {
-            font-size: 32px;
+            margin-bottom: 11px;
+            font-size: 38px;
+            line-height: 1;
         }
 
         .nombre {
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 700;
         }
-    }
-</style>
-```
 
+        .descripcion {
+            margin-top: 7px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .pie {
+            margin-top: 28px;
+            font-size: 12px;
+            color: #8b8b8b;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                align-items: flex-start;
+                padding: 18px 12px;
+            }
+
+            .contenedor {
+                padding: 28px 17px;
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitulo {
+                margin-bottom: 24px;
+                font-size: 14px;
+            }
+
+            .aplicaciones {
+                max-width: none;
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "fabricacion"
+                    "partes"
+                    "control"
+                    "pedidos"
+                    "almacen";
+                gap: 14px;
+            }
+
+            .aplicacion {
+                min-height: 115px;
+                padding: 18px 14px;
+            }
+
+            .icono {
+                font-size: 32px;
+            }
+
+            .nombre {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <main class="contenedor">
+        <img class="logo" src="logo_extruastur.png" alt="Extruastur">
 
-```
-<main class="contenedor">
+        <h1>Aplicaciones Extruastur</h1>
 
-    <img
-        class="logo"
-        src="logo_extruastur.png"
-        alt="Extruastur"
-    >
+        <p class="subtitulo">
+            Selecciona la aplicación a la que quieres acceder
+        </p>
 
-    <h1>
-        Aplicaciones Extruastur
-    </h1>
+        <section class="aplicaciones">
+            <a class="aplicacion fabricacion" href="https://extruastur.tail40ea9b.ts.net/">
+                <span class="icono">🏭</span>
+                <span class="nombre">Fabricación</span>
+                <span class="descripcion">Fabricaciones, mecanizados y almacén</span>
+            </a>
 
-    <p class="subtitulo">
-        Selecciona la aplicación a la que quieres acceder
-    </p>
+            <a class="aplicacion partes" href="https://extruastur.tail40ea9b.ts.net:8443/">
+                <span class="icono">🕒</span>
+                <span class="nombre">Partes de trabajo</span>
+                <span class="descripcion">Registro y consulta de jornadas</span>
+            </a>
 
-    <section class="aplicaciones">
+            <a class="aplicacion control-economico" href="https://extruastur.tail40ea9b.ts.net:10000/">
+                <span class="icono">📊</span>
+                <span class="nombre">Control Económico</span>
+                <span class="descripcion">Obras, costes, certificaciones, vencimientos y facturación</span>
+            </a>
 
-        <!-- FABRICACIÓN -->
-        <a
-            class="aplicacion fabricacion"
-            href="https://extruastur.tail40ea9b.ts.net/"
-        >
-            <span class="icono">
-                🏭
-            </span>
+            <a class="aplicacion pedidos" href="https://extruastur.tail40ea9b.ts.net/pedidos/">
+                <span class="icono">🛒</span>
+                <span class="nombre">Pedidos</span>
+                <span class="descripcion">Solicitudes de materiales para las obras</span>
+            </a>
 
-            <span class="nombre">
-                Fabricación
-            </span>
+            <a class="aplicacion almacen" href="https://extruastur.tail40ea9b.ts.net/almacen/login">
+                <span class="icono">📦</span>
+                <span class="nombre">Control de Almacén</span>
+                <span class="descripcion">Stock, movimientos, artículos y control de materiales</span>
+            </a>
+        </section>
 
-            <span class="descripcion">
-                Fabricaciones, mecanizados y almacén
-            </span>
-        </a>
-
-        <!-- PARTES DE TRABAJO -->
-        <a
-            class="aplicacion partes"
-            href="https://extruastur.tail40ea9b.ts.net:8443/"
-        >
-            <span class="icono">
-                🕒
-            </span>
-
-            <span class="nombre">
-                Partes de trabajo
-            </span>
-
-            <span class="descripcion">
-                Registro y consulta de jornadas
-            </span>
-        </a>
-
-        <!-- CONTROL ECONÓMICO -->
-        <a
-            class="aplicacion control-economico"
-            href="https://extruastur.tail40ea9b.ts.net:10000/"
-        >
-            <span class="icono">
-                📊
-            </span>
-
-            <span class="nombre">
-                Control Económico
-            </span>
-
-            <span class="descripcion">
-                Obras, costes, certificaciones, vencimientos y facturación
-            </span>
-        </a>
-
-        <!-- PEDIDOS -->
-        <a
-            class="aplicacion pedidos"
-            href="https://extruastur.tail40ea9b.ts.net/pedidos/"
-        >
-            <span class="icono">
-                🛒
-            </span>
-
-            <span class="nombre">
-                Pedidos
-            </span>
-
-            <span class="descripcion">
-                Solicitudes de materiales para las obras
-            </span>
-        </a>
-
-        <!-- CONTROL DE ALMACÉN -->
-        <a
-            class="aplicacion almacen"
-            href="https://extruastur.tail40ea9b.ts.net/almacen/login"
-        >
-            <span class="icono">
-                📦
-            </span>
-
-            <span class="nombre">
-                Control de Almacén
-            </span>
-
-            <span class="descripcion">
-                Stock, movimientos, artículos y control de materiales
-            </span>
-        </a>
-
-    </section>
-
-    <div class="pie">
-        Extruastur · Aplicaciones internas
-    </div>
-
-</main>
-```
-
+        <div class="pie">
+            Extruastur · Aplicaciones internas
+        </div>
+    </main>
 </body>
 </html>
+
